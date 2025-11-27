@@ -22,4 +22,9 @@ public class AgendamentoService {
     public Agendamento save(Agendamento agendamento) {
         return repo.save(agendamento);
     }
+
+    public long contarAgendamentos() {
+        return repo.count();
+    }
+
 }

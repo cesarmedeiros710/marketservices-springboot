@@ -1,0 +1,49 @@
+<div th:fragment="content">
+
+    <div class="row row-cards">
+
+        <div class="col-sm-6 col-lg-4">
+            <div class="card card-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <span class="mr-3"><i class="ti ti-users fs-2"></i></span>
+                        <div>
+                            <div class="font-weight-medium" th:text="${totalPrestadores}">0</div>
+                            <div class="text-muted">Prestadores cadastrados</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4">
+            <div class="card card-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <span class="mr-3"><i class="ti ti-briefcase fs-2"></i></span>
+                        <div>
+                            <div class="font-weight-medium" th:text="${prestadoresEmServico}">0</div>
+                            <div class="text-muted">Prestadores em serviço</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4">
+            <div class="card card-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <span class="mr-3"><i class="ti ti-calendar-check fs-2"></i></span>
+                        <div>
+                            <div class="font-weight-medium" th:text="${servicosAgendados}">0</div>
+                            <div class="text-muted">Serviços agendados</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

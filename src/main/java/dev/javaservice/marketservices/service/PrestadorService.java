@@ -21,4 +21,12 @@ public class PrestadorService {
     public Prestador save(Prestador prestador) {
         return prestadorRepository.save(prestador);
     }
+    public long contarPrestadores() {
+        return prestadorRepository.count();
+    }
+
+    public long contarPrestadoresEmServico() {
+        return prestadorRepository.countByEmServicoTrue();
+    }
+
 }
