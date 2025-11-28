@@ -2,7 +2,7 @@
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${title}">Dashboard</title>
+    <title th:text="${infos}">Dashboard</title>
 
     <link href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet"/>
@@ -21,7 +21,7 @@
 
         <div class="page-body">
             <div class="container-xl">
-                <div th:insert="${content}"></div>
+                <div th:replace="${content} :: content"></div>
             </div>
         </div>
 

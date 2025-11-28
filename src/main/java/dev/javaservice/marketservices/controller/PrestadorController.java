@@ -16,13 +16,18 @@ public class PrestadorController {
         this.prestadorService = prestadorService;
     }
 
+    @PostMapping
+    public Prestador salvar(@RequestBody Prestador prestador) {
+        return prestadorService.save(prestador);
+    }
+
     @GetMapping
     public List<Prestador> listar() {
         return prestadorService.findAll();
     }
 
-    @PostMapping
-    public Prestador salvar(@RequestBody Prestador prestador) {
-        return prestadorService.save(prestador);
+    @GetMapping("/{id}")
+    public Prestador buscar(@PathVariable Long id) {
+        return prestadorService.buscarPorId(id);
     }
 }

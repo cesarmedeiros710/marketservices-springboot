@@ -21,6 +21,11 @@ public class PrestadorService {
     public Prestador save(Prestador prestador) {
         return prestadorRepository.save(prestador);
     }
+
+    public Prestador buscarPorId(Long id) {
+        return prestadorRepository.findById(id).orElse(null);
+    }
+
     public long contarPrestadores() {
         return prestadorRepository.count();
     }

@@ -20,13 +20,12 @@ public class DashboardController {
         @GetMapping("/dashboard")
         public String dashboard(Model model) {
 
-            model.addAttribute("title", "Dashboard");
+            model.addAttribute("infos", "Dashboard");
+            model.addAttribute("content", "dashboard");
 
             model.addAttribute("totalPrestadores", prestadorService.contarPrestadores());
             model.addAttribute("prestadoresEmServico", prestadorService.contarPrestadoresEmServico());
             model.addAttribute("servicosAgendados", agendamentoService.contarAgendamentos());
-
-            model.addAttribute("content", "dashboard");
 
             return "layout";
         }
