@@ -1,7 +1,11 @@
 package com.marketservices.service;
 
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import com.marketservices.model.Prestador;
 import com.marketservices.repository.PrestadorRepository;
 
@@ -34,4 +38,24 @@ public class PrestadorService {
         return prestadorRepository.countByEmServicoTrue();
     }
 
+    public void deletarPrestador(Long id) {
+        prestadorRepository.deleteById(id);
+    }
+
+    public Map<String, Long> contarPrestadoresPorFuncao() {
+
+        List<Object[]> dados = prestadorRepository.contarPorFuncao();
+
+        Map<String, Long> resultado = new HashMap<>();
+
+        for (Object[] linha : dados) {
+
+            String funcao = (String) linha[0];
+            Long total = (Long) linha[1];
+
+            resultado.put(funcao, total);
+        }
+
+        return resultado;
+    }
 }

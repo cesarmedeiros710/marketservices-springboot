@@ -30,4 +30,9 @@ public class PrestadorController {
     public Prestador buscar(@PathVariable Long id) {
         return prestadorService.buscarPorId(id);
     }
+
+    @DeleteMapping("/{id}")
+    public void deletar(@PathVariable Long id) {
+        prestadorService.deletarPrestador(id);
+    }
 }

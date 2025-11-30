@@ -12,7 +12,6 @@ public class Prestador {
     private String nome;
     private String telefone;
     private String servico;
-
     private boolean emServico;
 
     public boolean isEmServico() {
@@ -25,11 +24,12 @@ public class Prestador {
 
     public Prestador() {}
 
-    public Prestador(Long id, String nome, String telefone, String servico) {
+    public Prestador(Long id, String nome, String telefone, String servico,  boolean emServico) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
         this.servico = servico;
+        this.emServico =  emServico;
     }
 
     public Long getId() {
