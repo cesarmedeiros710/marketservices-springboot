@@ -1,8 +1,6 @@
 <div th:fragment="content">
 
-
     <div class="row row-cards">
-
         <div class="col-sm-6 col-lg-4">
             <div class="card card-sm">
                 <div class="card-body">
@@ -44,16 +42,13 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <div class="row mt-4">
 
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Prestadores por Função</h3>
-                </div>
+                <div class="card-header"><h3 class="card-title">Prestadores por Função</h3></div>
                 <div class="card-body">
                     <canvas id="graficoFuncoes"></canvas>
                 </div>
@@ -62,9 +57,7 @@
 
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Atividade dos Prestadores</h3>
-                </div>
+                <div class="card-header"><h3 class="card-title">Atividade dos Prestadores</h3></div>
                 <div class="card-body">
                     <canvas id="graficoAtividade"></canvas>
                 </div>
@@ -73,40 +66,32 @@
 
     </div>
 
+    <script th:inline="javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+
+            var funcoesLabels = [[${funcoesLabels}]];
+            var funcoesValores = [[${funcoesValores}]];
+
+            var total = [[${totalPrestadores}]];
+            var emServico = [[${prestadoresEmServico}]];
+            var disponiveis = total - emServico;
+
+            new Chart(document.getElementById("graficoFuncoes"), {
+                type: "pie",
+                data: {
+                    labels: funcoesLabels,
+                    datasets: [{ data: funcoesValores }]
+                }
+            });
+
+            new Chart(document.getElementById("graficoAtividade"), {
+                type: "bar",
+                data: {
+                    labels: ["Em serviço", "Disponíveis"],
+                    datasets: [{ data: [emServico, disponiveis] }]
+                }
+            });
+        });
+    </script>
+
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-    const funcoesLabels = [[${funcoesLabels}]];
-    const funcoesValores = [[${funcoesValores}]];
-
-    const total = [[${totalPrestadores}]];
-    const emServico = [[${prestadoresEmServico}]];
-    const disponiveis = total - emServico;
-
-    new Chart(
-       document.getElementById('graficoFuncoes'),
-        {
-            type: 'pie',
-            data: {
-                labels: funcoesLabels,
-                datasets: [{
-                    data: funcoesValores
-                }]
-            }
-        }
-    );
-    new Chart(
-        document.getElementById('graficoAtividade'),
-        {
-            type: 'bar',
-            data: {
-                labels: ['Em Serviço', 'Disponíveis'],
-                datasets: [{
-                    data: [emServico, disponiveis]
-                }]
-            }
-        }
-    );
-</script>
